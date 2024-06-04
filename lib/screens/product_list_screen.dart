@@ -10,9 +10,11 @@
     final productProvider = Provider.of<ProductProvider>(context);
     final products = productProvider.products;
 
+
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Produtos em Estoque'),
+        title: Text('Serviços de Estética Turquesa '),
       ),
       body: ListView.builder(
         itemCount: products.length,

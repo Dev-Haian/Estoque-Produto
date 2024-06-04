@@ -19,7 +19,8 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
   final _codeController = TextEditingController();
   final _nameController = TextEditingController();
   final _descriptionController = TextEditingController();
-  String _type = 'Verdura';
+  String _type = 'Cabelo';
+  
 
   @override
   void initState() {
@@ -57,7 +58,7 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.product == null ? 'Adicionar Produto' : 'Editar Produto'),
+        title: Text(widget.product == null ? 'Adicionar Serviço' : 'Editar Serviço'),
         // actions: [
         //   IconButton(
         //     icon: Icon(Icons.save),
@@ -73,10 +74,10 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
             children: [
               TextFormField(
                 controller: _codeController,
-                decoration: InputDecoration(labelText: 'Código'),
+                decoration: InputDecoration(labelText: 'CPF'),
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Informe o código do produto';
+                    return 'Informe o código do Serviço';
                   }
                   return null;
                 },
@@ -86,24 +87,24 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
                 decoration: InputDecoration(labelText: 'Nome'),
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Informe o nome do produto';
+                    return 'Informe o nome do serviço';
                   }
                   return null;
                 },
               ),
               TextFormField(
                 controller: _descriptionController,
-                decoration: InputDecoration(labelText: 'Descrição'),
+                decoration: InputDecoration(labelText: 'Status'),
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Informe a descrição do produto';
+                    return 'Informe a descrição do serviço';
                   }
                   return null;
                 },
               ),
               DropdownButtonFormField<String>(
                 value: _type,
-                items: ['Verdura', 'Fruta', 'Tempero', 'Bebida'].map((String category) {
+                items: ['Cabelo', 'Manicure', 'Pedicure', 'Depilação', 'Manicure e Pedicure', ].map((String category) {
                   return DropdownMenuItem(
                     value: category,
                     child: Text(category),
